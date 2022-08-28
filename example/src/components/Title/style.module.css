@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .title {
   background-color: rgb(246, 236, 236);
   width: 200px;
@@ -10,3 +11,18 @@
   margin-top: 20px;
   border-radius: 8px;
 }
+=======
+.title{
+    background-color: rgb(246, 236, 236);
+    width: 200px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 8px;
+
+}
+>>>>>>> 42d188ce897cd37ac684fd3baef20a7f9d518dda
