@@ -1,16 +1,9 @@
 import style from "./style.module.css";
 import image from "./Rectangle.png";
-interface IProps {
-  id: number;
-  image?: string;
-  text: string;
-  date: string;
-  lesson_num: number;
-  title: string;
-  author: number;
-}
+import { IPost } from "../../types/posts";
 
-export const PostItem = (props: IProps) => {
+
+export const PostItem = (props: IPost) => {
   return (
     <div className={style.post}>
       {props.image ? (
