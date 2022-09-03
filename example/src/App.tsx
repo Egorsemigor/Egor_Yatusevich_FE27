@@ -5,8 +5,9 @@ import { Title } from "./components/Title";
 import { Username } from "./components/User";
 import { Clicker } from "./components/Clicker";
 import { EmojiList } from "./components/emojiList";
-import { PostList } from "./components/ToDoList/PostList";
+import { PostList } from "./components/PostList";
 import { posts } from "./mocks";
+import { ToDoList } from "./components/ToDoList/ToDo List";
 
 function App() {
   const onClickLogin = () => {
@@ -23,9 +24,10 @@ function App() {
       <Username username={"John Newman"} isDark={true} />
       <Username username={"Вася Пупкин"} isDark={true} />
       <Username username={"Джон Пупс"} isDark={true} /> */}
-      <PostList posts={posts} />
+      {/* <PostList posts={posts} /> */}
       {/* <Clicker /> */}
-      <EmojiList />
+      {/* <EmojiList /> */}
+      <ToDoList />
     </div>
   );
 }

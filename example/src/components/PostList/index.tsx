@@ -1,4 +1,4 @@
-import { IPost } from "../../../types/posts";
+import { IPost } from "../../types/posts";
 import { PostItem } from "../PostItem";
 import style from "./style.module.css";
 interface IProps {

@@ -10,11 +10,14 @@ export const EmojiList = () => {
     setText(event.target.value);
   };
   const filteredEmojies = emojies.filter((item) =>
-    item.title.includes(text) || item.keywords.includes(text) ? true : false
+    item.title.toLowerCase().includes(text.toLowerCase()) ||
+    item.keywords.toLowerCase().includes(text.toLowerCase())
+      ? true
+      : false
   );
   return (
     <div>
-      <Input
+      <Input 
         value={text}
         placeholder={"Search Emoji"}
         onChange={hendleOnChange}

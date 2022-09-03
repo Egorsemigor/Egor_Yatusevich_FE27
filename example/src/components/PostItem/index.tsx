@@ -1,6 +1,7 @@
 import style from "./style.module.css";
 import image from "./Rectangle.png";
-import { IPost } from "../../../types/posts";
+import { IPost } from "../../types/posts";
+
 
 export const PostItem = (props: IPost) => {
   return (
