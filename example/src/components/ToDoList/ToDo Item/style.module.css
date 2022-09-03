@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toDoPost {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid teal;
+  border-radius: 10px;
+  width: 80%;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.toDoPost:hover {
+  background-color: rgb(215, 231, 239);
+}
+.text {
+  font-size: 20px;
+}
+.check {
+  width: 30px;
+  height: 30px;
+}
