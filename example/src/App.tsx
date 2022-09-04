@@ -8,6 +8,9 @@ import { EmojiList } from "./components/emojiList";
 import { PostList } from "./components/PostList";
 import { posts } from "./mocks";
 import { ToDoList } from "./components/ToDoList/ToDo List";
+import { RegistrationForm } from "./components/RegistrationForm";
+import { Timer } from "./components/Timer";
+import { Header } from "./components/Header";
 
 function App() {
   const onClickLogin = () => {
@@ -27,7 +30,10 @@ function App() {
       {/* <PostList posts={posts} /> */}
       {/* <Clicker /> */}
       {/* <EmojiList /> */}
-      <ToDoList />
+      {/* <ToDoList /> */}
+      {/* <RegistrationForm />
+      <Timer /> */}
+      <Header />
     </div>
   );
 }
