@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .header {
   width: 100%;
   height: 147px;
@@ -5,12 +10,17 @@
   display: flex;
   justify-content: center;
 }
+.clearButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
 .container {
-  width: 1087px;
+  width: 1569px;
   height: 100%;
   display: flex;
   align-items: center;
-  margin-left: 234px;
+  padding-left: 234px;
 }
 .burger {
   position: relative;

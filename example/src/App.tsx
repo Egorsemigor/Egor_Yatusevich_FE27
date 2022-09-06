@@ -11,6 +11,8 @@ import { ToDoList } from "./components/ToDoList/ToDo List";
 import { RegistrationForm } from "./components/RegistrationForm";
 import { Timer } from "./components/Timer";
 import { Header } from "./components/Header";
+import { Converter } from "./components/Converter";
+import { Time } from "./components/Time";
 
 function App() {
   const onClickLogin = () => {
@@ -34,6 +36,8 @@ function App() {
       {/* <RegistrationForm />
       <Timer /> */}
       <Header />
+      <Converter />
+      <Time />
     </div>
   );
 }
