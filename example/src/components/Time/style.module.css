@@ -1,0 +1,8 @@
+.time {
+  margin-top: 50px;
+  width: 150px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
