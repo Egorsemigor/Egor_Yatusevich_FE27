@@ -1,43 +1,36 @@
 import { Button } from "./components/Button";
 import "./App.css";
 import { Input } from "./components/Input";
-import { Title } from "./components/Title";
+import { Title } from "./OldComponents/Title";
 import { Username } from "./components/User";
-import { Clicker } from "./components/Clicker";
-import { EmojiList } from "./components/emojiList";
+import { Clicker } from "./OldComponents/Clicker";
+import { EmojiList } from "./OldComponents/emojiList";
 import { PostList } from "./components/PostList";
 import { posts } from "./mocks";
 import { ToDoList } from "./components/ToDoList/ToDo List";
 import { RegistrationForm } from "./components/RegistrationForm";
-import { Timer } from "./components/Timer";
+import { Timer } from "./OldComponents/Timer";
 import { Header } from "./components/Header";
-import { Converter } from "./components/Converter";
+import { Converter } from "./OldComponents/Converter";
 import { Time } from "./components/Time";
-
+import { createContext, useState } from "react";
+import { LoginForm } from "./components/Login";
+import { Login } from "./pages/Login";
+import { RootRouter } from "./router";
+import { BrowserRouter } from "react-router-dom";
+export const Context = createContext<{
+  isDark: boolean;
+  setIsDark: (value: boolean) => void;
+}>({ isDark: false, setIsDark: () => {} });
 function App() {
-  const onClickLogin = () => {
-    alert("Login");
-  };
-
+  const [isDark, setIsDark] = useState(false);
   return (
     <div className="App">
-      {/* <Button onClick={onClickLogin} text="LogIn" />
-      <Input value={"Enter your name"} />
-      <Title text="Text" />
-      <Title text="React" />
-      <Title text="CSS, HTML, JS" />
-      <Username username={"John Newman"} isDark={true} />
-      <Username username={"Вася Пупкин"} isDark={true} />
-      <Username username={"Джон Пупс"} isDark={true} /> */}
-      {/* <PostList posts={posts} /> */}
-      {/* <Clicker /> */}
-      {/* <EmojiList /> */}
-      {/* <ToDoList /> */}
-      {/* <RegistrationForm />
-      <Timer /> */}
-      <Header />
-      <Converter />
-      <Time />
+      <BrowserRouter>
+        <Context.Provider value={{ isDark: isDark, setIsDark: setIsDark }}>
+          <RootRouter />
+        </Context.Provider>
+      </BrowserRouter>
     </div>
   );
 }

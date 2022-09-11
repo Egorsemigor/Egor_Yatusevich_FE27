@@ -1,5 +1,5 @@
 import { ChangeEvent, ChangeEventHandler, useState } from "react";
-import { Input } from "../Input";
+import { Input } from "../../components/Input";
 
 export const Converter = () => {
   const [byn, setByn] = useState(0);

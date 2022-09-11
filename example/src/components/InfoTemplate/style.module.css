@@ -1,0 +1,42 @@
+.infoMain {
+  height: 1157px;
+  width: 1569px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+.title {
+  width: 600px;
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+  color: #016efc;
+  margin-bottom: 76px;
+}
+.body {
+  width: 600px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 134%;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #254050;
+  margin-bottom: 96px;
+}
+.darkBody {
+  width: 600px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 134%;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  margin-bottom: 96px;
+}

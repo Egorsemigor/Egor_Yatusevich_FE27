@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../Button";
+import { Button } from "../../components/Button";
 
 export const Timer = () => {
   let [time, setTime] = useState(0);

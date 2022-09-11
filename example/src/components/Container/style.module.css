@@ -1,0 +1,22 @@
+.darkContainer {
+  background-color: #21323b;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.widthContainer {
+  width: 1569px;
+  background-image: url("./Vector.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}

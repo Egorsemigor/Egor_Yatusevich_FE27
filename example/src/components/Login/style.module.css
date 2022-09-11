@@ -11,6 +11,7 @@
   color: #254050;
   margin-bottom: 14px;
 }
+
 .darkInputTitle {
   font-family: "Raleway";
   font-style: normal;
@@ -36,6 +37,7 @@
   justify-content: center;
   align-items: center;
   gap: 41px;
+  background-color: transparent;
   padding-top: 63px;
 }
 .inputMargin {
