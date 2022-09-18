@@ -3,25 +3,26 @@
   margin: 0;
   padding: 0;
 }
+
 .post {
-  max-width: 341px;
-  max-height: 296px;
+  max-width: 675px;
+  max-height: 604px;
   padding: 28px 21px 24px 17px;
   box-shadow: 0px 6px 50px rgba(184, 196, 209, 0.15);
   border-radius: 13px;
   background-color: white;
 }
 .darkPost {
-  max-width: 341px;
-  max-height: 296px;
+  max-width: 675px;
+  max-height: 604px;
   padding: 28px 21px 24px 17px;
   box-shadow: 0px 6px 50px rgba(221, 229, 237, 0.15);
   border-radius: 13px;
   background-color: #09131f;
 }
 .image {
-  width: 296px;
-  height: 120px;
+  max-width: 614px;
+  max-height: 249px;
   border: 1px solid #ebebeb;
   border-radius: 11px;
   background-size: cover;
@@ -35,18 +36,11 @@
   color: #4f4f4f;
   margin-bottom: 16px;
 }
-.darkTitle {
-  font-family: "Raleway";
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 23px;
-  color: #f0dada;
-  margin-bottom: 16px;
-}
 .text {
-  width: 303px;
+  max-width: 606px;
   font-family: "Raleway";
   font-weight: 400;
+  max-height: 156px;
   font-size: 16px;
   line-height: 19px;
   color: #979797;
@@ -56,6 +50,6 @@
   font-family: "Raleway";
   font-weight: 400;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 22px;
   color: #016efc;
 }

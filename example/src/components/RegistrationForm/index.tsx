@@ -1,9 +1,11 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEventHandler, useContext, useState } from "react";
 import { Input } from "../Input";
 import { Button } from "../Button";
 import style from "./style.module.css";
+import { Context } from "../../App";
 
 export const RegistrationForm = () => {
+  const values = useContext(Context);
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,30 +25,70 @@ export const RegistrationForm = () => {
     setConfirmPassword(event.target.value);
   };
   return (
-    <div className={style.container}>
+    <div className={values.isDark ? style.darkContainer : style.container}>
       <form>
-        <div>
-          <p className={style.InputTitle}>Username</p>
-          <Input value={userName} placeholder={""} onChange={handlerUserName} />
-        </div>
-        <div>
-          <p className={style.InputTitle}>Email</p>
-          <Input value={email} placeholder={""} onChange={handlerEmail} />
-        </div>
-        <div>
-          <p className={style.InputTitle}>Password</p>
-          <Input value={password} placeholder={""} onChange={handlerPassword} />
-        </div>
         <div className={style.margin}>
-          <p className={style.InputTitle}>Confirm Password</p>
-          <Input
-            value={confirmPassword}
-            placeholder={""}
-            onChange={handlerComfirmPassword}
-          />
+          <div className={style.inputMargin}>
+            <p
+              className={
+                values.isDark ? style.darkInputTitle : style.InputTitle
+              }
+            >
+              Username
+            </p>
+            <Input
+              value={userName}
+              placeholder={""}
+              onChange={handlerUserName}
+            />
+          </div>
+          <div className={style.inputMargin}>
+            <p
+              className={
+                values.isDark ? style.darkInputTitle : style.InputTitle
+              }
+            >
+              Email
+            </p>
+            <Input value={email} placeholder={""} onChange={handlerEmail} />
+          </div>
+          <div className={style.inputMargin}>
+            <p
+              className={
+                values.isDark ? style.darkInputTitle : style.InputTitle
+              }
+            >
+              Password
+            </p>
+            <Input
+              value={password}
+              placeholder={""}
+              onChange={handlerPassword}
+            />
+          </div>
+          <div className={style.inputMargin}>
+            <p
+              className={
+                values.isDark ? style.darkInputTitle : style.InputTitle
+              }
+            >
+              Confirm Password
+            </p>
+            <Input
+              value={confirmPassword}
+              placeholder={""}
+              onChange={handlerComfirmPassword}
+            />
+          </div>
         </div>
         <Button text={"Login"} onClick={() => {}} />
       </form>
+      <p className={style.text}>
+        If you have account, you can{" "}
+        <a className={style.link} href="">
+          login
+        </a>
+      </p>
     </div>
   );
 };

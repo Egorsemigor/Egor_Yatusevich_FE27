@@ -1,6 +1,6 @@
 import { ChangeEventHandler, useState } from "react";
 import { EmojiRow } from "../emojiRow";
-import { Input } from "../Input";
+import { Input } from "../../components/Input";
 import { emojies } from "./emoji";
 
 export const EmojiList = () => {

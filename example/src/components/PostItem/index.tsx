@@ -1,11 +1,13 @@
 import style from "./style.module.css";
 import image from "./Rectangle.png";
 import { IPost } from "../../types/posts";
-
+import { useContext } from "react";
+import { Context } from "../../App";
 
 export const PostItem = (props: IPost) => {
+  const { isDark } = useContext(Context);
   return (
-    <div className={style.post}>
+    <div className={isDark ? style.darkPost : style.post}>
       {props.image ? (
         <img className={style.image} src={props.image} alt={props.title} />
       ) : (

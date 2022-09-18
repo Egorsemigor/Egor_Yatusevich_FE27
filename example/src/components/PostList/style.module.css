@@ -1,8 +1,10 @@
 .container {
-  width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-self: center;
-  padding: 15px;
+  max-width: 1569px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 40px;
+  padding: 15px;
+  padding-top: 63px;
 }

@@ -1,0 +1,22 @@
+.selectedPost {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+  color: #016efc;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 112px;
+  padding-top: 15px;
+}
+.container {
+  max-width: 1569px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-top: 46px;
+}
