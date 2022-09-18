@@ -20,7 +20,7 @@ export const AllPosts = () => {
       .then((values) => {
         setPosts(values.results);
       });
-  });
+  }, []);
 
   const loadMore = () => {
     const promise = fetch(
@@ -34,9 +34,9 @@ export const AllPosts = () => {
       .then((values) => {
         console.log({ values });
 
-        // if (values.results.length + posts.length === values.count) {
-        //   setShowLoadMore(false);
-        // }
+        if (values.results.length + posts.length === values.count) {
+          setShowLoadMore(false);
+        }
 
         setPosts(posts.concat(values.results));
       });
@@ -45,7 +45,9 @@ export const AllPosts = () => {
   return (
     <div>
       <PostList posts={posts} onClickPost={navigateToPost} />
-      <Button text={"Загурзить еще"} onClick={loadMore} />
+      {showLoadMore ? (
+        <Button text={"Загурзить еще"} onClick={loadMore} />
+      ) : null}
     </div>
   );
 };
