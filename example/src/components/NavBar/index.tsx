@@ -1,6 +1,5 @@
 import styles from "./style.module.css";
 import img from "./close.svg";
-
 import { useContext } from "react";
 import { Context } from "../../App";
 import { Link } from "react-router-dom";
