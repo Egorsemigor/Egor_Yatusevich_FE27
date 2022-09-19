@@ -1,3 +1,4 @@
+import { AllPosts } from "../../components/AllPosts";
 import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
 import { PostList } from "../../components/PostList";
@@ -8,7 +9,7 @@ export const Main = () => {
     <>
       <Header />
       <Container>
-        <PostList posts={posts} />
+        <AllPosts />
       </Container>
     </>
   );

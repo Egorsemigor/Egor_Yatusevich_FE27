@@ -1,30 +1,30 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Container } from "../../components/Container";
 import { FullPost } from "../../components/FullPost";
 import { Header } from "../../components/Header";
 import { IPost } from "../../types/posts";
 import style from "./style.module.css";
-interface IProps {
-  posts: IPost[];
-}
-export const SelectedPost = (props: IProps) => {
+
+export const SelectedPost = () => {
+  const [post, setPost] = useState<IPost | null>(null);
+  const params = useParams();
+  useEffect(() => {
+    const promise = fetch(
+      `https://studapi.teachmeskills.by/blog/posts/${params.postId}`    );
+    promise
+      .then((response) => response.json())
+      .then((values) => {
+        setPost(values);
+      });
+  });
   return (
     <div>
       <Header />
       <Container>
         <h2 className={style.selectedPost}>Selected post</h2>
         <div className={style.container}>
-          {props.posts.map((item) => (
-            <FullPost
-              key={item.id}
-              image={item.image}
-              text={item.text}
-              date={item.date}
-              title={item.title}
-              id={item.id}
-              lesson_num={item.lesson_num}
-              author={item.author}
-            />
-          ))}
+          {post? <FullPost {...post}/> : null} 
         </div>
       </Container>
     </div>

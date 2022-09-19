@@ -11,6 +11,7 @@
   box-shadow: 0px 6px 50px rgba(184, 196, 209, 0.15);
   border-radius: 13px;
   background-color: white;
+  margin-bottom: 20px;
 }
 .darkPost {
   max-width: 675px;
@@ -19,10 +20,11 @@
   box-shadow: 0px 6px 50px rgba(221, 229, 237, 0.15);
   border-radius: 13px;
   background-color: #09131f;
+  margin-bottom: 20px;
 }
 .image {
-  max-width: 614px;
-  max-height: 249px;
+  width: 614px;
+  height: 249px;
   border: 1px solid #ebebeb;
   border-radius: 11px;
   background-size: cover;

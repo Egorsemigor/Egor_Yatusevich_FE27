@@ -18,6 +18,7 @@ import { LoginForm } from "./components/Login";
 import { Login } from "./pages/Login";
 import { RootRouter } from "./router";
 import { BrowserRouter } from "react-router-dom";
+import { AllPosts } from "./components/AllPosts";
 export const Context = createContext<{
   isDark: boolean;
   setIsDark: (value: boolean) => void;
@@ -31,6 +32,7 @@ function App() {
           <RootRouter />
         </Context.Provider>
       </BrowserRouter>
+
     </div>
   );
 }
