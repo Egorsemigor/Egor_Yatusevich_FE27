@@ -1,0 +1,30 @@
+.separater {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+}
+
+.regLogin {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+  color: #75869b;
+  text-decoration: none;
+}
+
+.active {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: #016efc;
+}

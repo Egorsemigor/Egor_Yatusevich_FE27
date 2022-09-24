@@ -34,7 +34,7 @@ export const RegistrationForm = () => {
                 values.isDark ? style.darkInputTitle : style.InputTitle
               }
             >
-              Username
+              User name
             </p>
             <Input
               value={userName}
