@@ -28,6 +28,7 @@
   margin-bottom: 2px;
 }
 .title {
+  text-align: left;
   font-family: "Raleway";
   font-weight: 600;
   font-size: 20px;
@@ -36,6 +37,8 @@
   margin-bottom: 16px;
 }
 .darkTitle {
+  text-align: left;
+
   font-family: "Raleway";
   font-weight: 600;
   font-size: 20px;
@@ -44,7 +47,11 @@
   margin-bottom: 16px;
 }
 .text {
+  text-align: left;
+
+  overflow: hidden;
   width: 303px;
+  height: 40px;
   font-family: "Raleway";
   font-weight: 400;
   font-size: 16px;
@@ -53,6 +60,8 @@
   margin-bottom: 25px;
 }
 .date {
+  text-align: left;
+
   font-family: "Raleway";
   font-weight: 400;
   font-size: 16px;

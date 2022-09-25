@@ -39,6 +39,7 @@
   margin-bottom: 16px;
 }
 .text {
+  overflow: auto;
   max-width: 606px;
   font-family: "Raleway";
   font-weight: 400;

@@ -12,6 +12,7 @@ export const Login = () => {
     <div>
       <Header />
       <Container>
+        <LoginRegistration />
         <LoginForm />
       </Container>
     </div>
