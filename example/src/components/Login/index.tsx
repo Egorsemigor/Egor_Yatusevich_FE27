@@ -3,6 +3,7 @@ import { Input } from "../Input";
 import { Button } from "../Button";
 import style from "./style.module.css";
 import { Context } from "../../App";
+import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
   const values = useContext(Context);
@@ -20,15 +21,23 @@ export const LoginForm = () => {
       <form>
         <div className={style.margin}>
           <div className={style.inputMargin}>
-            <p className={
+            <p
+              className={
                 values.isDark ? style.darkInputTitle : style.InputTitle
-              }>Email</p>
+              }
+            >
+              Email
+            </p>
             <Input value={email} placeholder={""} onChange={handlerEmail} />
           </div>
           <div className={style.inputMargin}>
-            <p className={
+            <p
+              className={
                 values.isDark ? style.darkInputTitle : style.InputTitle
-              }>Password</p>
+              }
+            >
+              Password
+            </p>
             <Input
               value={password}
               placeholder={""}
@@ -40,9 +49,9 @@ export const LoginForm = () => {
       </form>
       <p className={style.text}>
         Forgot your password?{` `}
-        <a className={style.link} href="">
+        <Link className={style.link} to={"/registration"}>
           Reset password
-        </a>
+        </Link>
       </p>
     </div>
   );

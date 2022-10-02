@@ -9,3 +9,9 @@ export const validateEmail = (value: string) => {
 export const validatePassword = (value: string) => {
   return !passwordRegExp.test(value) ? "Invalid pattern of password" : "";
 };
+export const validateConfirmPassword = (password: string, confirmPassword: string) => {
+  return password !== confirmPassword
+    ? "Invalid pattern of confirm password"
+    : "";
+};
+

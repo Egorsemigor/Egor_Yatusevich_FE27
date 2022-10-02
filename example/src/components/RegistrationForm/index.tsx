@@ -1,32 +1,97 @@
-import React, { ChangeEventHandler, useContext, useState } from "react";
+import React, {
+  ChangeEventHandler,
+  FormEventHandler,
+  useContext,
+  useState,
+} from "react";
 import { Input } from "../Input";
 import { Button } from "../Button";
 import style from "./style.module.css";
 import { Context } from "../../App";
-
+import {
+  validateConfirmPassword,
+  validateEmail,
+  validatePassword,
+  validateRequired,
+} from "../../utils/validate";
+import { Link, useNavigate } from "react-router-dom";
+import { Username } from "../User";
+import { registerUser } from "../../api/auth";
 export const RegistrationForm = () => {
   const values = useContext(Context);
   const [userName, setUserName] = useState("");
+  const [userError, setUserError] = useState("");
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const navigate = useNavigate();
   const handlerUserName: ChangeEventHandler<HTMLInputElement> = (event) => {
+    const error = validateRequired(event.target.value);
+    error ? setUserError(error) : setUserError("");
     setUserName(event.target.value);
   };
   const handlerEmail: ChangeEventHandler<HTMLInputElement> = (event) => {
+    const error = validateEmail(event.target.value);
+    error ? setEmailError(error) : setEmailError("");
+
     setEmail(event.target.value);
   };
   const handlerPassword: ChangeEventHandler<HTMLInputElement> = (event) => {
+    const error = validatePassword(event.target.value);
+    error ? setPasswordError(error) : setPasswordError("");
     setPassword(event.target.value);
   };
   const handlerComfirmPassword: ChangeEventHandler<HTMLInputElement> = (
     event
   ) => {
+    const error = validateConfirmPassword(password, event.target.value);
+    error ? setConfirmPasswordError(error) : setConfirmPasswordError("");
     setConfirmPassword(event.target.value);
+  };
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+  };
+  const [error, setError] = useState("");
+
+  const onClickLogin = () => {
+    setError("");
+    const errors = {
+      username: validateRequired(userName),
+      email: validateEmail(email),
+      password: validatePassword(password),
+      confirmPassword: validateConfirmPassword(password, confirmPassword),
+    };
+    setUserError(errors.username);
+    setEmailError(errors.email);
+    setPassword(errors.password);
+    setConfirmPassword(errors.confirmPassword);
+    const isValidForm = Object.values(errors).every((error) => error === "");
+    if (isValidForm) {
+      const promise = registerUser(userName, email, password);
+      let isOk = false;
+      promise
+        .then((response) => {
+          response.ok ? (isOk = true) : (isOk = false);
+          return response.json();
+        })
+        .then((json) => {
+          if (isOk) {
+            navigate("/registrationsecsess");
+          } else {
+            if (json.email.includes("user with this Email already exists.")) {
+              setError("User with this Email already exists");
+            }
+            console.log(json);
+          }
+        });
+    }
   };
   return (
     <div className={values.isDark ? style.darkContainer : style.container}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={style.margin}>
           <div className={style.inputMargin}>
             <p
@@ -40,6 +105,7 @@ export const RegistrationForm = () => {
               value={userName}
               placeholder={""}
               onChange={handlerUserName}
+              error={userError}
             />
           </div>
           <div className={style.inputMargin}>
@@ -50,7 +116,12 @@ export const RegistrationForm = () => {
             >
               Email
             </p>
-            <Input value={email} placeholder={""} onChange={handlerEmail} />
+            <Input
+              value={email}
+              placeholder={""}
+              onChange={handlerEmail}
+              error={emailError}
+            />
           </div>
           <div className={style.inputMargin}>
             <p
@@ -64,6 +135,7 @@ export const RegistrationForm = () => {
               value={password}
               placeholder={""}
               onChange={handlerPassword}
+              error={passwordError}
             />
           </div>
           <div className={style.inputMargin}>
@@ -78,16 +150,18 @@ export const RegistrationForm = () => {
               value={confirmPassword}
               placeholder={""}
               onChange={handlerComfirmPassword}
+              error={confirmPasswordError}
             />
           </div>
         </div>
-        <Button text={"Login"} onClick={() => {}} />
+        <p className={style.error}>{error}</p>
+        <Button text={"Login"} onClick={onClickLogin} />
       </form>
       <p className={style.text}>
         If you have account, you can{" "}
-        <a className={style.link} href="">
+        <Link className={style.link} to={"/login"}>
           login
-        </a>
+        </Link>
       </p>
     </div>
   );
