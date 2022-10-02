@@ -10,6 +10,7 @@
   letter-spacing: 0.05em;
   color: #254050;
   margin-bottom: 14px;
+  text-align: left;
 }
 
 .darkInputTitle {
@@ -21,6 +22,7 @@
   letter-spacing: 0.05em;
   color: white;
   margin-bottom: 14px;
+  text-align: left;
 }
 .container {
   display: flex;
