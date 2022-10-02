@@ -81,9 +81,35 @@ export const RegistrationForm = () => {
           if (isOk) {
             navigate("/registrationsecsess");
           } else {
-            if (json.email.includes("user with this Email already exists.")) {
-              setError("User with this Email already exists");
+            if (
+              json?.username?.includes(
+                " A user with that username already exists."
+              )
+            ) {
+              setError("Пользователь с таким имененм существует!");
             }
+            console.log(json);
+            if (json?.email?.includes("user with this Email already exists.")) {
+              setError("Пользователь с таким Email уже существует.");
+            }
+            if (
+              json?.password?.includes(
+                "This password is too short. It must contain at least 8 characters."
+              )
+            ) {
+              setError(
+                "Ваш пароль слишком короткий. Он долже содержать не менее 8 символов."
+              );
+            }
+            if (json?.password?.includes("This password is too common.")) {
+              setError("Слишком легкий пароль.");
+            }
+            if (
+              json?.password?.includes("  This password is entirely numeric.")
+            ) {
+              setError("Этот пароль содержит только цифры");
+            }
+
             console.log(json);
           }
         });

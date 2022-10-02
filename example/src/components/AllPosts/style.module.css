@@ -1,3 +1,21 @@
 .input {
-  text-align: left;
+  margin-top: 15px;
+  text-align: center;
+}
+.title {
+  display: inline-block;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+  color: #016efc;
+  margin-right: 30px;
+}
+.mainTitle {
+  padding-left: 210px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
 }

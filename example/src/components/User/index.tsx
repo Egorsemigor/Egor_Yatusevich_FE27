@@ -7,6 +7,7 @@ interface UserProps {
 
 export const Username = (props: UserProps) => {
   const initial = props.username.trim().split(" ");
+  
   return (
     <div
       className={`${style.mainDiv} ${props.isDark ? style.darkMainDiv : ""}`}

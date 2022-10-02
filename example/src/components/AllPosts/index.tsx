@@ -1,7 +1,14 @@
 import { count } from "console";
-import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchPosts } from "../../api/post";
+import { Context } from "../../App";
 import { IPost } from "../../types/posts";
 import { Button } from "../Button";
 import { Input } from "../Input";
@@ -14,6 +21,7 @@ export const AllPosts = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { user } = useContext(Context);
   const [showLoadMore, setShowLoadMore] = useState(false);
   const navigateToPost = (id: number) => {
     navigate(`/selectedpost/${id}`);
@@ -49,7 +57,7 @@ export const AllPosts = () => {
   };
 
   return (
-    <div>
+    <div className={style.main}>
       <div className={style.input}>
         <Input
           value={search}
@@ -57,6 +65,19 @@ export const AllPosts = () => {
           onChange={handleSearch}
         />
       </div>
+      <div className={style.mainTitle}>
+        <h2 className={style.title}>All Posts</h2>
+        {user ? (
+          <Button
+            className={{ width: "100px", height: '51px', borderRadius: '25px', color:'red' }}
+            text={"+ Add"}
+            onClick={() => {
+              navigate("/addpost");
+            }}
+          />
+        ) : null}
+      </div>
+
       {isLoading ? (
         <Loader />
       ) : (

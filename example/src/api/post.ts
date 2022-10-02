@@ -1,3 +1,5 @@
+import { tmsFetch } from "../utils/fetch";
+
 export const fetchPosts = (search: string, offset: number) => {
   const promise = fetch(
     `https://studapi.teachmeskills.by/blog/posts/?limit=10&offset=${offset}&search=${search}`
@@ -6,4 +8,16 @@ export const fetchPosts = (search: string, offset: number) => {
     return response.json();
   });
   return jsonPosts;
+};
+
+export const fetchMyPosts = () => {
+  return tmsFetch(`https://studapi.teachmeskills.by/blog/posts/my_posts/`).then(
+    (response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return { status: response.status };
+      }
+    }
+  );
 };
