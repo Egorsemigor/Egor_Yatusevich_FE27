@@ -1,7 +1,7 @@
 import { Button } from "./components/Button";
 import "./App.css";
 import { Input } from "./components/Input";
-import { Title } from "./OldComponents/Title";
+import { Title } from "./components/Title";
 import { Username } from "./components/User";
 import { Clicker } from "./OldComponents/Clicker";
 import { EmojiList } from "./OldComponents/emojiList";
@@ -21,6 +21,11 @@ import { BrowserRouter } from "react-router-dom";
 import { AllPosts } from "./components/AllPosts";
 import { IUser } from "./types/auth";
 import { getUser } from "./api/auth";
+import preloader from "./Gear.gif";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 export const Context = createContext<{
   isDark: boolean;
   setIsDark: (value: boolean) => void;
@@ -36,27 +41,34 @@ export const Context = createContext<{
   userName1: "",
   setUserName: (value: any) => {},
 });
+const access = localStorage.getItem("access");
 function App() {
   const [isDark, setIsDark] = useState(false);
   const [user, setUser] = useState<IUser | null>(null);
   const [userName1, setUserName] = useState("");
+  const [isReady, setIsReady] = useState(!access);
   useEffect(() => {
-    let isOk = true;
-    getUser()
-      .then((response) => {
-        if (response.ok) {
-          isOk = true;
-        } else {
-          isOk = false;
-        }
-        return response.json();
-      })
-      .then((user) => {
-        if (isOk) {
-          setUser(user);
-          setUserName(user.username);
-        }
-      });
+    if (access) {
+      let isOk = true;
+      getUser()
+        .then((response) => {
+          if (response.ok) {
+            isOk = true;
+          } else {
+            isOk = false;
+          }
+          return response.json();
+        })
+        .then((user) => {
+          if (isOk) {
+            setUser(user);
+            setUserName(user.username);
+          }
+        })
+        .finally(() => {
+          setIsReady(true);
+        });
+    }
   }, []);
   return (
     <div className="App">
@@ -71,8 +83,22 @@ function App() {
             setUserName: setUserName,
           }}
         >
-          <RootRouter />
+          {isReady ? (
+            <RootRouter />
+          ) : (
+            <img
+              src={preloader}
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translateX(-50%) translateY(-50%)",
+              }}
+              alt=""
+            />
+          )}
         </Context.Provider>
+        <NotificationContainer />
       </BrowserRouter>
     </div>
   );

@@ -15,7 +15,7 @@ import { Input } from "../Input";
 import { Loader } from "../Loader";
 import { PostList } from "../PostList";
 import style from "./style.module.css";
-
+import preloader from "../../Gear.gif";
 export const AllPosts = () => {
   const [search, setSearch] = useState("");
   const [posts, setPosts] = useState<IPost[]>([]);
@@ -69,7 +69,12 @@ export const AllPosts = () => {
         <h2 className={style.title}>All Posts</h2>
         {user ? (
           <Button
-            className={{ width: "100px", height: '51px', borderRadius: '25px', color:'red' }}
+            classNameButton={{
+              width: "100px",
+              height: "51px",
+              borderRadius: "25px",
+              color: "red",
+            }}
             text={"+ Add"}
             onClick={() => {
               navigate("/addpost");
@@ -79,7 +84,7 @@ export const AllPosts = () => {
       </div>
 
       {isLoading ? (
-        <Loader />
+        <img src={preloader} alt="" />
       ) : (
         <PostList posts={posts} onClickPost={navigateToPost} />
       )}

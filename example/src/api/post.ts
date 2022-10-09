@@ -21,3 +21,14 @@ export const fetchMyPosts = () => {
     }
   );
 };
+export const createPost = (body: FormData) => {
+  return tmsFetch(`https://studapi.teachmeskills.by/blog/posts/`, {
+    method: "POST",
+    body: body,
+  });
+};
+export const removePost = (id:number) =>{
+  return tmsFetch(`https://studapi.teachmeskills.by/blog/posts/${id}`, {
+    method: "DELETE",
+  });
+}

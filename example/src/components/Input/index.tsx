@@ -6,17 +6,23 @@ interface Input {
   placeholder: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   error?: string;
+  title?: string;
 }
 export const Input = (props: Input) => {
   return (
     <div className={styles.mainDiv}>
-      <input
-        className={`${styles.input} ${props.error ? styles.error : ""}`}
-        onChange={props.onChange}
-        placeholder={props.placeholder}
-        value={props.value}
-      ></input>
-      <p className={styles.text}>{props.error}</p>
+      
+        {props.title ? (
+          <p className={styles.InputTitle}>{props.title}</p>
+        ) : null}
+        <input
+          className={`${styles.input} ${props.error ? styles.error : ""}`}
+          onChange={props.onChange}
+          placeholder={props.placeholder}
+          value={props.value}
+        ></input>
+        <p className={styles.text}>{props.error}</p>
+     
     </div>
   );
 };

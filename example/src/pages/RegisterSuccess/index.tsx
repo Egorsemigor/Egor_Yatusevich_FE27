@@ -3,7 +3,7 @@ import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
 import { InfoTemplate } from "../../components/InfoTemplate";
 
-export const RegisterSucsess = () => {
+export const RegisterSuccess = () => {
   const text = "";
   const navigate = useNavigate();
   return (
