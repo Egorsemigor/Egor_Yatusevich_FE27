@@ -1,6 +1,6 @@
 .navBar {
   width: 100%;
-  max-height: 298px;
+  height: 298px;
   background-color: #016efc;
   padding-left: 20px;
   padding-right: 20px;
@@ -11,9 +11,12 @@
 .active {
   color: black;
 }
+.dayModeUl {
+  margin-top: 138px;
+}
 .darkNavBar {
   width: 100%;
-  max-height: 298px;
+  height: 298px;
   background-color: #09131f;
   padding-left: 20px;
   padding-right: 20px;
@@ -29,19 +32,37 @@
   justify-content: space-between;
   padding-left: 234px;
 }
-
+.mainMenu:last-child {
+}
 .menu {
   display: flex;
-
   padding: 58px 0 71px;
 }
-
+.dayModeUl {
+  display: flex;
+}
+.menu li {
+  margin-right: 50px;
+}
+.logOut {
+  float: right;
+  padding-top: 50px;
+}
 .closeButton {
   cursor: pointer;
   width: 33px;
   height: 33px;
 }
-
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* отображаем курсор в виде руки при наведении; некоторые
+    считают, что необходимо оставлять стрелочный вид для кнопок */
+  cursor: pointer;
+}
 .close {
   border: none;
   background-color: transparent;
@@ -52,7 +73,7 @@
 
 .menu ul {
   padding: 0;
-  margin: 0 0 0 82px;
+  margin: 70px 0 0 82px;
   list-style-type: none;
   text-align: left;
 }

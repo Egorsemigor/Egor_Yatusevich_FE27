@@ -14,4 +14,3 @@ export const validateConfirmPassword = (password: string, confirmPassword: strin
     ? "Invalid pattern of confirm password"
     : "";
 };
-
