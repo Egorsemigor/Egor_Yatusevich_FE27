@@ -25,7 +25,7 @@ export const MyPostsList = () => {
   }, []);
 
   const navigateToSelectedPost = (postId: number) => {
-    navigate(`/selected-user/${postId}`);
+    navigate(`/selectedpost/${postId}`);
   };
 
   return (
